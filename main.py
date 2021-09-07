@@ -2,7 +2,7 @@ import tkinter as tk
 from tkinter import filedialog, messagebox, ttk
 from tkinter import Tk
 import pandas as pd
-
+from tkinter import ttk
 
 
 class Root(Tk):
@@ -14,47 +14,47 @@ class Root(Tk):
         self.pack_propagate(False)
         self.resizable(0, 0)  # makes the root window fixed in size.
 
-        self.file_frame = tk.LabelFrame(self, text="Open File")
+        self.file_frame = ttk.LabelFrame(self, text="Open File")
 
         self.file_frame.place(height=180, width=900)
                 # Buttons
-        self.label_email =tk.Label(self.file_frame,text="Email")
+        self.label_email =ttk.Label(self.file_frame,text="Email")
         self.label_email.place(rely=0.25, relx=0.1,height=30)
 
-        self.email_entry= tk.Entry(self.file_frame)
+        self.email_entry= ttk.Entry(self.file_frame)
         self.email_entry.place(rely=0.25, relx=0.2,height=30,width=160)
 
-        self.label_password =tk.Label(self.file_frame,text="Password")
+        self.label_password =ttk.Label(self.file_frame,text="Password")
         self.label_password.place(rely=0.60, relx=0.1,height=30)
 
-        self.password_entry= tk.Entry(self.file_frame)
+        self.password_entry= ttk.Entry(self.file_frame)
         self.password_entry.place(rely=0.60, relx=0.2,height=30,width=160)
-        self.button1 = tk.Button(
+        self.button1 = ttk.Button(
             self.file_frame, text="Import CSV File",command=lambda: self.File_dialog())
         self.button1.place(rely=0.85, relx=0.50)
 
-        self.button2 = tk.Button(
+        self.button2 = ttk.Button(
             self.file_frame, text="Start", command=lambda: self.start_func())
         self.button2.place(rely=0.85, relx=0.30)
         #Result
-        self.Result_button =tk.Button(self.file_frame,text="Result",command=lambda: self.result_func())
+        self.Result_button =ttk.Button(self.file_frame,text="Result",command=lambda: self.result_func())
         self.Result_button.place(rely=0.85, relx=0.80)
 
         # Total per day
-        self.label_Total_per_day =tk.Label(self.file_frame,text="Total per day")
+        self.label_Total_per_day =ttk.Label(self.file_frame,text="Total per day")
         self.label_Total_per_day.place(rely=0.0, relx=0.70,height=30) 
-        self.Total_per_day_entry= tk.Entry(self.file_frame)
+        self.Total_per_day_entry= ttk.Entry(self.file_frame)
         self.Total_per_day_entry.place(rely=0.0, relx=0.8,width=160,height=30)
         #Time between
-        self.label_Time_between =tk.Label(self.file_frame,text="Time between")
+        self.label_Time_between =ttk.Label(self.file_frame,text="Time between")
         self.label_Time_between.place(rely=0.3, relx=0.70,height=30) 
-        self.Time_between_entry= tk.Entry(self.file_frame)
+        self.Time_between_entry= ttk.Entry(self.file_frame)
         self.Time_between_entry.place(rely=0.3, relx=0.8,width=160,height=30)
        
        #Start at
-        self.label_Start_at =tk.Label(self.file_frame,text="Start at")
+        self.label_Start_at =ttk.Label(self.file_frame,text="Start at")
         self.label_Start_at.place(rely=0.6, relx=0.70,height=30) 
-        self.Start_at_entry= tk.Entry(self.file_frame)
+        self.Start_at_entry= ttk.Entry(self.file_frame)
         self.Start_at_entry.place(rely=0.6, relx=0.8,width=160,height=30)     
 
 
@@ -62,11 +62,11 @@ class Root(Tk):
         self.label_file = ttk.Label(self.file_frame, text="No File Selected")
         self.label_file.place(rely=0, relx=0)
     #     # Frame for TreeView
-        self.frame1 = tk.LabelFrame(self)
+        self.frame1 = ttk.LabelFrame(self)
         self.frame1.place(height=650, width=680, rely=0.20, relx=0)
 
     #     # Frame for open file dialog
-        self.frame2 = tk.LabelFrame(self)
+        self.frame2 = ttk.LabelFrame(self)
         self.frame2.place(height=650, width=220, rely=0.20, relx=0.75)
 
         self.tv2 = ttk.Treeview(self.frame2)
@@ -74,10 +74,10 @@ class Root(Tk):
         self.tv2.place(relheight=1, relwidth=1)
 
         # command means update the yaxis view of the widget
-        self.treescroll1y = tk.Scrollbar(
+        self.treescroll1y = ttk.Scrollbar(
             self.frame2, orient="vertical", command=self.tv2.yview)
         # command means update the xaxis view of the widget
-        self.treescroll1x = tk.Scrollbar(
+        self.treescroll1x = ttk.Scrollbar(
             self.frame2, orient="horizontal", command=self.tv2.xview)
         # assign the scrollbars to the Treeview Widget
         self.tv2.configure(xscrollcommand=self.treescroll1x.set,
